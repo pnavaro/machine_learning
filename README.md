@@ -2,5 +2,5 @@
 Notes cours machine learning 
 
 Deux formations :
-  - Rennes par Romain Tavenard et Alban Thomas
-  - Paris par Olivier Grisel
+  - à Rennes par Romain Tavenard et Alban Thomas
+  - à Paris par Olivier Grisel
