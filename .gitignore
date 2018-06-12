@@ -102,4 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-supports/
+supports_alban/
+ml_py_formation/
+.idea/
+cheet_sheets/
