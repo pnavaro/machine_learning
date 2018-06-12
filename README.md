@@ -1,4 +1,6 @@
-# machine_learning
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/pnavaro/machine_learning/master)
+
+# Machine Learning
 Notes cours machine learning 
 
 Deux formations :
