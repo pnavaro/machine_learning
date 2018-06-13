@@ -106,3 +106,11 @@ supports_alban/
 ml_py_formation/
 .idea/
 cheet_sheets/
+formation_src/illus_knn2d.py
+formation_src/illus_pca2d.py
+formation_src/illus_reg1d.py
+formation_src/illus_reglog2d.py
+formation_src/illus_svc2d.py
+formation_src/td_model_selection.py
+formation_src/td_sklearn.py
+formation_src/ts_keras.py
