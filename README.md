@@ -4,8 +4,8 @@
 
 Notes cours machine learning 
 
-Deux formations :
+Formations :
   - à Rennes les 11,12,13 juin 2018 par [Romain Tavenard](https://github.com/rtavenar) et [Alban Thomas](https://bitbucket.org/thomas_a/maplearn)
-  - à Paris les 25 et 26 juin 2018 par [Olivier Grisel](https://github.com/ogrisel)
 
 
+Prochaine session [Machine learning sous Python (Juin 2019)](https://cnrsformation.cnrs.fr/stage-19007-Machine-learning-sous-Python.html?axe=97)
