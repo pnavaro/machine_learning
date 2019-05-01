@@ -114,3 +114,4 @@ formation_src/illus_svc2d.py
 formation_src/td_model_selection.py
 formation_src/td_sklearn.py
 formation_src/ts_keras.py
+*.swp
