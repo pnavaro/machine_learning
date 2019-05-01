@@ -1,8 +1,9 @@
-name: ml-2018
+name: mch-learn
 channels:
   - conda-forge
   - defaults
 dependencies:  
+  - jupytext
   - holoviews
   - keras
   - numpy
