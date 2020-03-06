@@ -1,33 +1,21 @@
 #!/usr/bin/env python
 # coding: utf-8
+# %% [markdown]
+# Reference : https://github.com/eriklindernoren/ML-From-Scratch
 
-# In[1]:
-
-
+# %%
 import numpy as np
 import math
 from sklearn import datasets
 import matplotlib.pyplot as plt
 import pandas as pd
-import progressbar
 import matplotlib.pyplot as plt
 import matplotlib.cm as cmx
 import matplotlib.colors as colors
 import numpy as np
 
 
-# In[2]:
-
-
-bar_widgets = [
-    'Training: ', progressbar.Percentage(), ' ', progressbar.Bar(marker="-", left="[", right="]"),
-    ' ', progressbar.ETA()
-]
-
-
-# In[3]:
-
-
+# %%
 def calculate_covariance_matrix(X, Y=None):
     """ Calculate the covariance matrix for the dataset X """
     if Y is None:
@@ -39,9 +27,7 @@ def calculate_covariance_matrix(X, Y=None):
  
 
 
-# In[4]:
-
-
+# %%
 class Plot():
     def __init__(self): 
         self.cmap = plt.get_cmap('viridis')
@@ -96,9 +82,7 @@ class Plot():
         plt.show()
 
 
-# In[ ]:
-
-
+# %%
 def shuffle_data(X, y, seed=None):
     """ Random shuffle of the samples in X and y """
     if seed:
@@ -125,6 +109,7 @@ def train_test_split(X, y, test_size=0.5, shuffle=True, seed=None):
     return X_train, X_test, y_train, y_test
 
 
+# %%
 # Decision stump used as weak classifier in this impl. of Adaboost
 class DecisionStump():
     def __init__(self):
@@ -137,6 +122,8 @@ class DecisionStump():
         # Value indicative of the classifier's accuracy
         self.alpha = None
 
+
+# %%
 class Adaboost():
     """Boosting method that uses a number of weak classifiers in 
     ensemble to make a strong classifier. This implementation uses decision
@@ -230,9 +217,7 @@ class Adaboost():
         return y_pred
 
 
-# In[12]:
-
-
+# %%
 with open("data_banknote_authentication.txt") as f:
     data = f.read().splitlines()
 
@@ -247,7 +232,7 @@ for i, line in enumerate(data):
 X, y
 
 
-# In[15]:
+# %%
 
 
 # Change labels to {-1, 1}

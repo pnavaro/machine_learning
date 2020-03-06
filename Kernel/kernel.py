@@ -1,25 +1,26 @@
 #!/usr/bin/env python
 # coding: utf-8
+# %%
 
 # ### Kernel method et soft Support Vector Machine par Descente de Gradient Stochastique
 # 
 # Voir chapitre 16 du livre Understanding Machine Learning de S. Shalev-Shwartz et S. Ben-David
 
-# In[3]:
+# %%
 
 
 import numpy as np
 import matplotlib.pyplot as plt
 
 
-# In[4]:
+# %%
 
 
 def hinge_loss(x):
     return max(0,1-x)
 
 
-# In[73]:
+# %%
 
 
 def kernel(x,xprime):
@@ -29,7 +30,7 @@ def kernel(x,xprime):
     #return np.exp(-np.dot(x-xprime,x-xprime)/2/sigma)
 
 
-# In[74]:
+# %%
 
 
 class Hyperplan:
@@ -83,7 +84,7 @@ class Hyperplan:
         return self,liste    
 
 
-# In[75]:
+# %%
 
 
 class Polynomial:
@@ -109,7 +110,7 @@ class Polynomial:
         return np.dot(X2,np.dot(self.weights,X1))[0,0]
 
 
-# In[76]:
+# %%
 
 
 def affiche(x,y,h,x_train):
@@ -135,7 +136,7 @@ def affiche(x,y,h,x_train):
             axs[1].plot(x[i][0],x[i][1],'or')
 
 
-# In[77]:
+# %%
 
 
 def affiche_risques(liste,x,y,K,lambd,x_train,label):
@@ -151,7 +152,7 @@ def affiche_risques(liste,x,y,K,lambd,x_train,label):
         plt.plot(risque_vrai)    
 
 
-# In[78]:
+# %%
 
 
 # Les paramètres :
@@ -182,7 +183,7 @@ lambd=1
 learning=0.1
 
 
-# In[79]:
+# %%
 
 
 # fabrication des données
@@ -210,7 +211,7 @@ for i in range(m):
         K[i,j]=kernel(x[i],x[j])
 
 
-# In[80]:
+# %%
 
 
 # Résolution du problème soft-SVM
@@ -218,19 +219,19 @@ h=Hyperplan()
 h,liste=h.SGD(x,y,K,lambd,10000,learning=1)
 
 
-# In[81]:
+# %%
 
 
 affiche(x,y,h,x)
 
 
-# In[82]:
+# %%
 
 
 affiche(xtest,ytest,h,x)
 
 
-# In[732]:
+# %%
 
 
 fichier = open("data_banknote_authentication.txt", "r")
@@ -246,7 +247,7 @@ data[:,2]=data[:,2]/max(np.abs(data[:,2]))
 data[:,3]=data[:,3]/max(np.abs(data[:,3]))
 
 
-# In[733]:
+# %%
 
 
 taille_training=int(taille*0.8)
@@ -269,7 +270,7 @@ m=taille_training
 Hyperplan.m=m
 
 
-# In[734]:
+# %%
 
 
 K=np.zeros((m,m))
@@ -278,7 +279,7 @@ for i in range(m):
         K[i,j]=kernel(x[i],x[j])
 
 
-# In[737]:
+# %%
 
 
 # Résolution du problème soft-SVM
@@ -286,7 +287,7 @@ h=Hyperplan()
 h,liste=h.SGD(x,y,K,lambd,100000,learning=1)
 
 
-# In[738]:
+# %%
 
 
 print('erreur d\'entraînement :',100*(1-h.risk_vrai(x,y,x)))

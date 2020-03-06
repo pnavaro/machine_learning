@@ -12,10 +12,10 @@ class l1_regularization():
         self.alpha = alpha
     
     def __call__(self, w):
-        return self.alpha * np.linalg.norm(w)
+        return 
 
     def grad(self, w):
-        return self.alpha * np.sign(w)
+        return 
 
 class LassoRegression():
     """
@@ -38,7 +38,7 @@ class LassoRegression():
 
     def __init__(self, degree, reg_factor, n_iterations=3000, learning_rate=0.01):
         self.degree = degree
-        self.regularization = l1_regularization(alpha=reg_factor)
+        self.alpha = reg_factor
         self.n_iterations = n_iterations
         self.learning_rate = learning_rate
 
@@ -57,10 +57,10 @@ class LassoRegression():
         for i in range(self.n_iterations):
             y_pred = X.dot(self.w)
             # Calculate l2 loss
-            mse = np.mean(0.5 * (y - y_pred)**2 + self.regularization(self.w))
+            mse = np.mean(0.5 * (y - y_pred)**2 + self.alpha * np.linalg.norm(self.w))
             self.training_errors.append(mse)
             # Gradient of l2 loss w.r.t w
-            grad_w = -(y - y_pred).dot(X) + self.regularization.grad(self.w)
+            grad_w = -(y - y_pred).dot(X) + self.alpha * np.sign(self.w)
             # Update the weights
             self.w -= self.learning_rate * grad_w
 
@@ -70,3 +70,5 @@ class LassoRegression():
         X = np.insert(X, 0, 1, axis=1)
         y_pred = X.dot(self.w)
         return y_pred
+
+
