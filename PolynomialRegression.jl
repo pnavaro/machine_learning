@@ -83,7 +83,7 @@ Compute the Epanechnikov kernel.
 function (::Epanechnikov)(t)
 
     kernel = zero(t)
-    idx = abs.(t) .<= 1
+    idx = findall(abs.(t) .<= 1)
     kernel[idx] = 0.75 .* (1 .- t[idx].^2)
     return kernel
 
@@ -96,7 +96,7 @@ end
 
 # +
 kernel = Epanechnikov()
-width = 2
+width = 1
 
 Y_pred = Float64[]
 for x in eachrow(X_grid)
