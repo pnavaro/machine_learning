@@ -88,6 +88,7 @@ def forward_regression(X, y, threshold_in = 0.01):
         if best_pval < threshold_in:
             best_feature = np.argmin(new_pval)
             included.append(best_feature)
+            print(included)
             changed=True
         if not changed:
             return included
@@ -118,29 +119,7 @@ def backward_regression(X, y, threshold_out = 0.01):
     
 
 backward_regression(X, y)
-
-
-# +
-def modelcomparison(X, y, samples):
-    """
-    takes as input argument the sample and a set of competing models. 
-    This function returns the best model (i.e., the subset of the relevant variables) 
-    and its estimator of the prediction error.
-    """
-    pass
-
-
-def modelselection(X, y, direction):
-    """
-    takes as input argument the sample and the direction (backward or forward). 
-    This function returns the best model (i.e., the subset of the relevant variables) 
-    and its estimator of the prediction error.
-    """
-    models = dict(forward = forward_regression, backward = backward_regression)
-    
-    return models[direction](X, y)
-    
-    
 # -
+
 
 
