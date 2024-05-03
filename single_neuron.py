@@ -7,13 +7,13 @@ from numpy import exp, array, random, dot, tanh
 
 # Class to create a neural 
 # network with single neuron 
-class NeuralNetwork(): 
+class SingleNeuron(): 
 	
-	def __init__(self): 
+	def __init__(self, seed = 1): 
 		
 		# Using seed to make sure it'll 
 		# generate same weights in every run 
-		random.seed(1) 
+		random.seed(seed) 
 		
 		# 3x1 Weight matrix 
 		self.weight_matrix = 2 * random.random((3, 1)) - 1
@@ -55,21 +55,21 @@ class NeuralNetwork():
 # Driver Code 
 if __name__ == "__main__": 
 	
-	neural_network = NeuralNetwork() 
+	nn = SingleNeuron() 
 	
 	print ('Random weights at the start of training') 
-	print (neural_network.weight_matrix) 
+	print (nn.weight_matrix) 
 
 	train_inputs = array([[0, 0, 1], [1, 1, 1], [1, 0, 1], [0, 1, 1]]) 
 	train_outputs = array([[0, 1, 1, 0]]).T 
 
-	neural_network.train(train_inputs, train_outputs, 10000) 
+	nn.train(train_inputs, train_outputs, 10000) 
 
 	print ('New weights after training') 
-	print (neural_network.weight_matrix) 
+	print (nn.weight_matrix) 
 
 	# Test the neural network with a new situation. 
 	print ("Testing network on new examples ->") 
-	print (neural_network.forward_propagation(array([1, 0, 0]))) 
+	print (nn.forward_propagation(array([1, 0, 0]))) 
 
 
