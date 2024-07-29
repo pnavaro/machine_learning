@@ -26,10 +26,10 @@ end
 tanh_derivative(x) = 1.0 - tanh(x)^2
 
 # forward propagation 
-forward_propagation(model, inputs) = tanh.(inputs * model.weights)
+forward_propagation(model :: SingleNeuron, inputs) = tanh.(inputs * model.weights)
 
 # training the neural network. 
-function train!(model, train_inputs, train_outputs, num_train_iterations)
+function train!(model :: SingleNeuron, train_inputs, train_outputs, num_train_iterations)
 
     # Number of iterations we want to perform for this set of input. 
     for iteration = 1:num_train_iterations
@@ -69,5 +69,4 @@ println(nn.weights)
 # Test the neural network with a new situation. 
 println("Testing network on new examples ->")
 println(forward_propagation(nn, [1, 0, 0]'))
-
 
