@@ -15,7 +15,7 @@ end
 
 euclidean_distance(x1, x2) = sqrt(sum(x1 .- x2).^2)
 
-predict(knn, X) = [predict_single(knn, x) for x in X]
+predict(knn, X) = [predict_single(knn, x) for x in eachrow(X)]
 
 function predict_single(knn, x)
 
@@ -48,10 +48,12 @@ o = clugen(dimension, n_components, n_samples, options...)
 X = o.points
 y_true = o.clusters
 
-scatter(X[:,1], X[:,2], group = y_true)
+p1 = scatter(X[:,1], X[:,2], group = y_true, ms = 2, markerstrokewidth=0, aspect_ratio=1)
 
 model = KNNClassifier(5, X, y_true)
 
 y_pred = predict(model, X)
 
-scatter(X[:,1], X[:,2], group = y_true)
+p2 = scatter(X[:,1], X[:,2], group = y_pred, ms =2, markerstrokewidth=0, aspect_ratio=1)
+
+plot(p1, p2)
