@@ -9,7 +9,8 @@ Below is the simple Neural Network consists of 2 layers:
 
 First Initialize the size of layers along with the weights & biases.
 
-And also define the sigmoid activation function & it's derivative which is really key to introduce non-linearity.
+And also define the sigmoid activation function & it's derivative
+which is really key to introduce non-linearity.
 
 Forward Pass:
 
@@ -47,7 +48,9 @@ Now Update the Weights:
 
 Here learning rate is the hyper parameter!
 
-A low learning rate can cause the model getting caught in local optima, while the high learning rate can cause the model to overshoot the general solution
+A low learning rate can cause the model getting caught in local
+optima, while the high learning rate can cause the model to overshoot
+the general solution
 
 W1 += learning_rate * d_W1
 b1 += learning_rate * d_b1
@@ -62,7 +65,8 @@ The function will run for specified no of epochs, calculating:
 
 Finally the Predict Function
 
-Now to predict on any new data all we need to do is a single Forward Pass through the Network:
+Now to predict on any new data all we need to do is a single Forward
+Pass through the Network:
 
 """
 
