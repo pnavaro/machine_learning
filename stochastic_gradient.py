@@ -1,8 +1,7 @@
 import itertools
 import numpy as np
 import matplotlib.pyplot as plt
-
-import numpy as np
+from gradient_descent import ssr_gradient
 
 def sgd(
     gradient, x, y, start, learn_rate=0.1, batch_size=1, n_iter=50,
@@ -240,15 +239,16 @@ def sgd(
 
     return vector if vector.shape else vector.item()
 
->>> sgd(
-...     ssr_gradient, x, y, start=[0.5, 0.5], learn_rate=0.0008,
-...     batch_size=3, n_iter=100_000, random_state=0
-... )
-array([5.63093736, 0.53982921])
+x = np.array([5, 15, 25, 35, 45, 55])
+y = np.array([5, 20, 14, 32, 22, 38])
+
+print(sgd(
+     ssr_gradient, x, y, start=[0.5, 0.5], learn_rate=0.0008,
+     batch_size=3, n_iter=100_000, random_state=0
+))
 
 
->>> sgd(
-...     ssr_gradient, x, y, n_vars=2, learn_rate=0.0001,
-...     decay_rate=0.8, batch_size=3, n_iter=100_000, random_state=0
-... )
-array([5.63014443, 0.53901017])
+print(sgd(
+     ssr_gradient, x, y, n_vars=2, learn_rate=0.0001,
+     decay_rate=0.8, batch_size=3, n_iter=100_000, random_state=0
+))
